@@ -4,7 +4,6 @@ const PORT = 3000;
 
 app.use(express.json());
 
-// Sample quiz questions
 const questions = [
   {
     id: 1,
@@ -20,13 +19,13 @@ const questions = [
   },
 ];
 
-// GET API to fetch a random question
+
 app.get("/question", (req, res) => {
   const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
   res.json({ id: randomQuestion.id, question: randomQuestion.question, options: randomQuestion.options });
 });
 
-// POST API to check the submitted answer
+
 app.post("/answer", (req, res) => {
   const { id, answer } = req.body;
   const question = questions.find(q => q.id === id);
